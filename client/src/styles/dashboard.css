@@ -1,0 +1,152 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* ================= HEADER ================= */
+.todo-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 4rem;
+  animation: slideTitle 6s infinite;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.todo-subtitle {
+  font-size: 1.2rem;
+  animation: slideSubtitle 6s infinite;
+  color: #f1f1f1;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Title moves left to right */
+@keyframes slideTitle {
+  0% { transform: translateX(-100%); opacity: 0; }
+  20% { transform: translateX(0); opacity: 1; }
+  80% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Subtitle moves right to left */
+@keyframes slideSubtitle {
+  0% { transform: translateX(100%); opacity: 0; }
+  20% { transform: translateX(0); opacity: 1; }
+  80% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+/* ================= ADD FORM ================= */
+form, .form-group {
+  font-family: 'Roboto', sans-serif;
+}
+
+input.form-control {
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+input.form-control:focus {
+  border-color: #ff6a00;
+  box-shadow: 0 0 6px rgba(255, 106, 0, 0.6);
+}
+
+/* Add button */
+.btn-primary {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+/* ================= TASK LIST ================= */
+.todo-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: none;
+}
+.todo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.todo-card .card-title {
+  color: #333;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+.todo-card .card-text {
+  color: #666;
+}
+
+/* ================= BUTTONS IN CARD ================= */
+.btn-sm {
+  padding: 0.35rem 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+/* Edit Button */
+.btn-primary.btn-sm {
+  background: #007bff;
+  border: none;
+}
+.btn-primary.btn-sm:hover {
+  background: #0056b3;
+}
+
+/* Update Button */
+.btn-warning.btn-sm {
+  background: #ffc107;
+  border: none;
+}
+.btn-warning.btn-sm:hover {
+  background: #e0a800;
+}
+
+/* Delete Button */
+.btn-danger.btn-sm {
+  background: #dc3545;
+  border: none;
+}
+.btn-danger.btn-sm:hover {
+  background: #b02a37;
+}
+
+/* Cancel Button */
+.btn-secondary.btn-sm {
+  background: #dc3545;
+  border: none;
+}
+.btn-secondary.btn-sm:hover {
+  background: #b02a37;
+}
+
+/* ================= ALERT MESSAGES ================= */
+.text-success {
+  font-weight: 600;
+  margin-top: 10px;
+  color: #28a745 !important;
+  animation: fadeOut 5s forwards;
+}
+.text-danger {
+  font-weight: 600;
+  margin-top: 10px;
+  color: #dc3545 !important;
+}
+
+/* Fade out success messages */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
