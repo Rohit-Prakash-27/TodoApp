@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
@@ -6,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");   // ⬅️ added
 
 dotenv.config();
 
@@ -128,8 +128,6 @@ app.post("/api/auth/login", async (req, res) => {
 
     const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: "1d" });
 
-    // On different domains you must use SameSite=None and secure cookies
-    const isProd = process.env.NODE_ENV === "production";
     res
       .cookie(COOKIE_NAME, token, {
         httpOnly: true,
@@ -195,6 +193,16 @@ app.delete("/api/tasks/:id", authMiddleware, async (req, res) => {
 
   res.json({ message: "Task deleted" });
 });
+
+// ---- Serve frontend (React) ----
+if (process.env.NODE_ENV === "production") {
+  const frontendPath = path.join(__dirname, "client", "dist"); // ⬅️ change to "build" if CRA
+  app.use(express.static(frontendPath));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(frontendPath, "index.html"));
+  });
+}
 
 // ---- Start ----
 app.listen(PORT, () => {
