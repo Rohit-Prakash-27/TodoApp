@@ -150,3 +150,33 @@ input.form-control:focus {
   80% { opacity: 1; }
   100% { opacity: 0; display: none; }
 }
+
+/* strike-through text for completed */
+.line-through {
+  text-decoration: line-through;
+}
+
+/* faded completed card */
+.completed-card {
+  opacity: 0.6;
+  background-color: #f7fff7; /* subtle green tint — change as desired */
+}
+
+/* small style for completed badge */
+.card .badge.bg-success {
+  font-size: 0.75rem;
+  padding: 0.4em 0.6em;
+}
+
+/* progress bar tweaks */
+.progress {
+  background: #e9ecef;
+}
+.progress-bar {
+  transition: width 400ms ease;
+}
+
+/* keep spacing consistent with your layout */
+.todo-card .card-body .btn {
+  min-width: 84px;
+}
