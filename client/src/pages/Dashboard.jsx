@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import confetti from "canvas-confetti"; // 🎉 import
 import "../styles/dashboard.css";
+import Header from "./header";
 
 export default function Dashboard() {
   const [tasks, setTasks] = useState([]);
@@ -167,11 +168,7 @@ export default function Dashboard() {
 
   return (
     <>
-      {/* Header */}
-      <div className="row p-3 bg-dark text-light text-center">
-        <h1 className="todo-title">Todo-Pro</h1>
-        <p className="todo-subtitle">Your Productivity Partner</p>
-      </div>
+      <Header />
 
       {/* Add form */}
       <div className="container mt-4">
